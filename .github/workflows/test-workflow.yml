@@ -26,10 +26,12 @@ jobs:
           ls -la
 
       - name: Checkout code ✅
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: test pre-release
+      - name: test after checkout
         run: |
           pwd
           ls -la
-          echo "${{ github.ref_name }}"
+          echo "My repository: ${{ github.repository }}"
+          echo "My branch: ${{ github.ref_name }}"
+          echo "My Github username: ${{ github.actor }}"
