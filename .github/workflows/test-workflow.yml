@@ -1,0 +1,35 @@
+---
+name: simple-test-workflow
+
+on:
+  # trigger workflow on commit/PR merge to master
+  push:
+    branches: [master]
+    # only run this workflow if workflow file was changed
+    paths:
+      - .github/workflows/test-workflow.yml
+  # allow triggering this workflow manually
+  workflow_dispatch:
+    branches: [master]
+
+jobs:
+  simple_test:
+    runs-on: ubuntu-22.04
+    steps:
+
+      - name: start
+        run: echo "Running the test workflow. Be patient. 🐢"
+
+      - name: test before checkout
+        run: |
+          pwd
+          ls -la
+
+      - name: Checkout code ✅
+        uses: actions/checkout@v3
+
+      - name: test pre-release
+        run: |
+          pwd
+          ls -la
+          echo "${{ github.ref_name }}"
