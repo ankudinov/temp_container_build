@@ -30,3 +30,6 @@ jobs:
           #   username: avd
     with:
       container_name: ${{ matrix.container_name }}
+      from_image: ${{ matrix.from_image }}
+      from_variant: ${{ matrix.from_variant }}
+      username: ${{ matrix.username }}
