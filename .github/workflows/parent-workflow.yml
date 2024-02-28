@@ -1,0 +1,32 @@
+---
+name: build multiple containers
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+    - .github/workflows/parent-workflow.yml
+    - .github/workflows/child-workflow.yml
+    - containers/**
+
+jobs:
+  build_universal_container:
+    uses: ./.github/workflows/child-workflow.yml
+    strategy:
+      matrix:
+        # container_name: [golang-jupyter, my_avd, marpit]
+        container_name: [golang-jupyter]
+        include:
+          - container_name: golang-jupyter
+            from_image: mcr.microsoft.com/devcontainers/go
+            from_variant: 0-1-bullseye
+          # - container_name: marpit
+          #   from_image: mcr.microsoft.com/devcontainers/base
+          #   from_variant: ubuntu
+          # - container_name: my_avd
+          #   from_image: ghcr.io/aristanetworks/avd/dev
+          #   from_variant: python3.11
+          #   username: avd
+    with:
+      container_name: ${{ matrix.container_name }}
