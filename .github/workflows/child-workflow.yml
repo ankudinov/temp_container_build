@@ -24,10 +24,10 @@ on:
         type: string
         default: linux/arm64/v8,linux/amd64
       from_image:
-        required: false
+        required: true
         type: string
       from_variant:
-        required: false
+        required: true
         type: string
       username:
         required: false
