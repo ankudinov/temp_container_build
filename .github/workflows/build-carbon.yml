@@ -11,7 +11,7 @@ on:
     branches:
       - master
     paths:
-    - .github/workflows/test-container-pre-build.yml
+    - .github/workflows/build-carbon.yml
     - containers/carbon/**
 
 jobs:
