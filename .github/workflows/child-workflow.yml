@@ -15,7 +15,7 @@ on:
       container_name:
         required: true
         type: string
-      container_tags:
+      image_tags:
         required: false
         type: string
         default: latest
