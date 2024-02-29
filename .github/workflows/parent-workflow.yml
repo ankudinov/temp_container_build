@@ -35,3 +35,6 @@ jobs:
       from_image: ${{ matrix.from_image }}
       from_variant: ${{ matrix.from_variant }}
       username: ${{ matrix.username }}
+      clab_version: ${{ matrix.clab_version }}
+      avd_github_repo: ${{ matrix.avd_github_repo }}
+      avd_branch_name: ${{ matrix.avd_branch_name }}
