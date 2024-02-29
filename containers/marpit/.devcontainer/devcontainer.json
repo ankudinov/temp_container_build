@@ -3,14 +3,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/go
 {
 	"name": "GoJupiter",
-	"build": {
-		"dockerfile": "Dockerfile",
-        "args": {
-            "FROM_IMAGE": "${localEnv:FROM_IMAGE}",
-            "FROM_VARIANT": "${localEnv:FROM_VARIANT}",
-            "USERNAME": "${localEnv:USERNAME}"
-        }
-	},
+	"image": "mcr.microsoft.com/devcontainers/go:0-1-bullseye",
 	"hostRequirements": {
         "cpus": 2,
         "memory": "4gb",
