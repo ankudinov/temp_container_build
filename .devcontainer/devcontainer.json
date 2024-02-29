@@ -1,4 +1,8 @@
 {
     // "image": "ghcr.io/ankudinov/temp_container_build/carbon:latest"
-    "image": "ghcr.io/ankudinov/temp_container_build/my_avd:latest"
+    "image": "ghcr.io/ankudinov/temp_container_build/my_avd:latest",
+    "containerEnv": {
+        "ARISTA_TOKEN": "${localEnv:ARTOKEN}"
+    },
+    "onCreateCommand": "ardl get eos --image-type cEOS --latest --import-docker"
 }
