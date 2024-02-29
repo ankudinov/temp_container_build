@@ -16,14 +16,14 @@ jobs:
     strategy:
       matrix:
         # container_name: [golang-jupyter, my_avd, marpit]
-        container_name: [golang-jupyter]
+        container_name: [golang-jupyter, marpit]
         include:
           - container_name: golang-jupyter
             from_image: mcr.microsoft.com/devcontainers/go
             from_variant: 0-1-bullseye
-          # - container_name: marpit
-          #   from_image: mcr.microsoft.com/devcontainers/base
-          #   from_variant: ubuntu
+          - container_name: marpit
+            from_image: mcr.microsoft.com/devcontainers/base
+            from_variant: ubuntu
           # - container_name: my_avd
           #   from_image: ghcr.io/aristanetworks/avd/dev
           #   from_variant: python3.11
