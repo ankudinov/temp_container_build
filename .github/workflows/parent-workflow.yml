@@ -8,16 +8,14 @@ on:
     paths:
     - .github/workflows/parent-workflow.yml
     - .github/workflows/child-workflow.yml
-    - containers/marpit/**
-    - containers/golang-jupyter/**
+    - containers/**
 
 jobs:
   build_universal_container:
     uses: ./.github/workflows/child-workflow.yml
     strategy:
       matrix:
-        # container_name: [golang-jupyter, my_avd, marpit]
-        container_name: [golang-jupyter, marpit]
+        container_name: [golang-jupyter, my_avd, marpit]
         include:
           - container_name: golang-jupyter
             from_image: mcr.microsoft.com/devcontainers/go
@@ -25,10 +23,13 @@ jobs:
           - container_name: marpit
             from_image: mcr.microsoft.com/devcontainers/base
             from_variant: ubuntu
-          # - container_name: my_avd
-          #   from_image: ghcr.io/aristanetworks/avd/dev
-          #   from_variant: python3.11
-          #   username: avd
+          - container_name: my_avd
+            from_image: ghcr.io/aristanetworks/avd/dev
+            from_variant: python3.11
+            username: avd
+            clab_version: v0.51.3
+            avd_github_repo: aristanetworks/avd
+            avd_branch_name: devel
     with:
       container_name: ${{ matrix.container_name }}
       from_image: ${{ matrix.from_image }}

@@ -41,6 +41,15 @@ on:
         required: false
         type: string
         default: 1000
+      clab_version:
+        required: false
+        type: string
+      avd_github_repo:
+        required: false
+        type: string
+      avd_branch_name:
+        required: false
+        type: string
 
 jobs:
   build_image:
@@ -74,6 +83,9 @@ jobs:
           USERNAME: ${{ inputs.username }}
           UID: ${{ inputs.user_id }}
           GID: ${{ inputs.group_id }}
+          CLAB_VERSION: ${{ inputs.clab_version }}
+          AVD_GITHUB_REPO: ${{ inputs.avd_github_repo }}
+          AVD_BRANCH_NAME: ${{ inputs.avd_branch_name }}
         with:
           subFolder: containers/${{ inputs.container_name }}
           imageName: ghcr.io/${{ github.repository }}/${{ inputs.container_name }}
