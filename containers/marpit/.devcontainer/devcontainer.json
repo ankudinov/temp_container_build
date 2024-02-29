@@ -1,6 +1,16 @@
+
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/go
 {
-	"name": "marpit",
-	"image": "${localEnv:FROM_IMAGE}:${localEnv:FROM_VARIANT}",
+	"name": "GoJupiter",
+	"build": {
+		"dockerfile": "Dockerfile",
+        "args": {
+            "FROM_IMAGE": "${localEnv:FROM_IMAGE}",
+            "FROM_VARIANT": "${localEnv:FROM_VARIANT}",
+            "USERNAME": "${localEnv:USERNAME}"
+        }
+	},
 	"hostRequirements": {
         "cpus": 2,
         "memory": "4gb",
