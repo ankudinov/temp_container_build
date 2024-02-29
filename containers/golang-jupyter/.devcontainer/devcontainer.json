@@ -1,22 +1,13 @@
-
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/go
 {
-	"name": "GoJupiter",
-	"build": {
-		"dockerfile": "Dockerfile",
+    "build": {
+        "dockerfile": "./Dockerfile",
+        "context": ".",
         "args": {
-            "FROM_IMAGE": "${localEnv:FROM_IMAGE}",
-            "FROM_VARIANT": "${localEnv:FROM_VARIANT}",
-            "USERNAME": "${localEnv:USERNAME}"
+            "FROM_IMAGE": "janpfeifer/gonb_jupyterlab",
+            "FROM_VARIANT": "latest"
         }
-	},
-	"hostRequirements": {
-        "cpus": 2,
-        "memory": "4gb",
-        "storage": "32gb"
     },
-	"customizations": {
+    "customizations": {
 		"vscode": {
 			"extensions": [
 				"ms-toolsai.jupyter",
