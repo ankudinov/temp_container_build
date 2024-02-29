@@ -27,4 +27,8 @@ RUN bash -c "$(curl -sL https://get.containerlab.dev)" -- -v ${CLAB_VERSION} \
     && pip install --user passlib
 
 # install Ansible collections
-RUN /bin/entrypoint.sh true
+RUN ANSIBLE_CORE_VERSION=$(curl -s https://raw.githubusercontent.com/${AVD_GITHUB_REPO}/${AVD_BRANCH_NAME}/ansible_collections/arista/avd/requirements-dev.txt | grep ansible-core) \
+    && AVD_INSTALL_PATH="git+https://github.com/${AVD_GITHUB_REPO}.git#/ansible_collections/arista/avd/,${AVD_BRANCH_NAME}" \
+    && pip3 install "${ANSIBLE_CORE_VERSION}" \
+    && ansible-galaxy collection install --force ${AVD_INSTALL_PATH} \
+    && pip3 install -r ${AVD_COLLECTION_PATH}/requirements.txt -r ${AVD_COLLECTION_PATH}/requirements-dev.txt
