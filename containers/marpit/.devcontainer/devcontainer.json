@@ -1,4 +1,5 @@
 {
+    "name": "marpit",
     "image": "${localEnv:FROM_IMAGE}:${localEnv:FROM_VARIANT}",
     "customizations": {
         "vscode": {
