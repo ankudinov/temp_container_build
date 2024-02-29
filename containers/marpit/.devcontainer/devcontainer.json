@@ -1,27 +1,17 @@
 {
-    "name": "marpit",
-    "image": "${localEnv:FROM_IMAGE}:${localEnv:FROM_VARIANT}",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                // install Marp extension for VScode to build slides
-                "marp-team.marp-vscode",
-                // git essentials
-                "piotrpalarz.vscode-gitignore-generator",
-                "mhutchie.git-graph",
-                "donjayamanne.githistory",
-                // spell checker
-                "streetsidesoftware.code-spell-checker",
-                // excalidraw
-                "pomdtr.excalidraw-editor",
-                // markdown
-                "yzhang.markdown-all-in-one",
-                "bierner.markdown-checkbox",
-                "DavidAnson.vscode-markdownlint",
-                // various tools
-                "vscode-icons-team.vscode-icons",
-                "mutantdino.resourcemonitor"
-            ]
-        }
-    }
+	"name": "marpit",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+	"hostRequirements": {
+        "cpus": 2,
+        "memory": "4gb",
+        "storage": "32gb"
+    },
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-toolsai.jupyter",
+				"streetsidesoftware.code-spell-checker"
+			]
+		}
+	}
 }
