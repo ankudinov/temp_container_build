@@ -25,3 +25,6 @@ RUN bash -c "$(curl -sL https://get.containerlab.dev)" -- -v ${CLAB_VERSION} \
     && pip3 install --user yamllint \
     && pip install --user eos-downloader \
     && pip install --user passlib
+
+# install Ansible collections
+RUN /bin/entrypoint.sh true

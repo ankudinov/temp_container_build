@@ -1,3 +1,4 @@
 {
-    "image": "ghcr.io/ankudinov/temp_container_build/carbon:latest"
+    // "image": "ghcr.io/ankudinov/temp_container_build/carbon:latest"
+    "image": "ghcr.io/ankudinov/temp_container_build/my_avd:latest"
 }

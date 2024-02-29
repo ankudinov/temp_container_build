@@ -41,6 +41,5 @@
                 "mutantdino.resourcemonitor"
             ]
         }
-    },
-    "onCreateCommand": "/bin/entrypoint.sh true"
+    }
 }
