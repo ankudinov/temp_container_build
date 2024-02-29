@@ -1,6 +1,6 @@
 {
 	"name": "marpit",
-	"image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+	"image": "${localEnv:FROM_IMAGE}:${localEnv:FROM_VARIANT}",
 	"hostRequirements": {
         "cpus": 2,
         "memory": "4gb",
