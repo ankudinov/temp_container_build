@@ -23,10 +23,8 @@ jobs:
             from_image: mcr.microsoft.com/devcontainers/go
             from_variant: 0-1-bullseye
           - container_name: marpit
-            from_image: mcr.microsoft.com/devcontainers/go
-            from_variant: 0-1-bullseye
-            # from_image: mcr.microsoft.com/devcontainers/base
-            # from_variant: ubuntu
+            from_image: mcr.microsoft.com/devcontainers/base
+            from_variant: ubuntu
           # - container_name: my_avd
           #   from_image: ghcr.io/aristanetworks/avd/dev
           #   from_variant: python3.11

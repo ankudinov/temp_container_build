@@ -5,21 +5,6 @@ FROM ${FROM_IMAGE}:${FROM_VARIANT}
 
 ARG USERNAME
 
-# install jupyter notebook
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends python3-pip \
-    # ipykernel depends on pusutil, which does not publish wheels for aarch64
-    # source https://github.com/awslabs/amazon-emr-vscode-toolkit/pull/5/files
-    && if [ "$TARGETARCH" != "amd64" ]; then apt-get install -y --no-install-recommends gcc python3-dev; fi \
-    && pip3 install jupyter notebook pyzmq tornado ipykernel
-
-# install gophernotes
 USER ${USERNAME}
-RUN go install github.com/gopherdata/gophernotes@v0.7.5 \
-    && mkdir -p ~/.local/share/jupyter/kernels/gophernotes \
-    && cd ~/.local/share/jupyter/kernels/gophernotes \
-    && cp "$(go env GOPATH)"/pkg/mod/github.com/gopherdata/gophernotes@v0.7.5/kernel/*  "." \
-    && chmod +w ./kernel.json \
-    && sed "s|gophernotes|$(go env GOPATH)/bin/gophernotes|" < kernel.json.in > kernel.json
-
-EXPOSE 8888
+RUN sudo apt-get update \
+    && sudo apt-get install -y chromium
