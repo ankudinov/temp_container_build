@@ -27,7 +27,7 @@ jobs:
             from_image: ghcr.io/aristanetworks/avd/dev
             from_variant: python3.11
             username: avd
-            clab_version: v0.51.3
+            clab_version: "0.51.3"
             avd_github_repo: aristanetworks/avd
             avd_branch_name: devel
     with:
