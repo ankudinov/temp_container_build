@@ -18,8 +18,8 @@ jobs:
         container_name: [golang-jupyter, my_avd, marpit]
         include:
           - container_name: golang-jupyter
-            from_image: mcr.microsoft.com/devcontainers/go
-            from_variant: 0-1-bullseye
+            from_image: janpfeifer/gonb_jupyterlab
+            from_variant: latest
           - container_name: marpit
             from_image: mcr.microsoft.com/devcontainers/base
             from_variant: ubuntu

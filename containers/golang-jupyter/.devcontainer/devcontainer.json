@@ -3,8 +3,8 @@
         "dockerfile": "./Dockerfile",
         "context": ".",
         "args": {
-            "FROM_IMAGE": "janpfeifer/gonb_jupyterlab",
-            "FROM_VARIANT": "latest"
+            "FROM_IMAGE": "${localEnv:FROM_IMAGE}",
+            "FROM_VARIANT": "${localEnv:FROM_VARIANT}"
         }
     },
     "customizations": {
